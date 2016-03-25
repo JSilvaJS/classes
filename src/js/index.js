@@ -42,33 +42,34 @@ function expect(target) {
 // â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“
 
 class Dog {
-  constructor (options) {
-  		if (options){
-  			this.color = options.color;
-  		}
-  	this.status = 'normal';
-  	if (options) {
-  			this.hungry = false;
-  		}
-  }
+	constructor (passedOptions={}) {
+
+		var defaultOpts = {
+			status: 'normal',
+			color: 'blue',
+			hungry: true
+		}
+
+		Object.assign(this, defaultOpts, passedOptions);
+	}
 }
 
-
 class Human {
-	constructor (options) {
-		if (options){
-			this.cool = options.cool;
+		constructor (passedOptions={}) {
+		var defaultOpts = {
+			cool: false
 		}
-		// this.mason = {cool:true}
-		// console.log(this.mason);
-	};
+			Object.assign(this, defaultOpts, passedOptions);
+	}
 	pet(dog) {
-			dog.status ='happy';
-		}
+		dog.status = 'happy';
+	}
 	feed(dog) {
+		dog.hungry = false;
 	}
 
-};
+}
+
 // â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘
 //                DO NOT MOTIFY BELOW THIS LIKE
 
